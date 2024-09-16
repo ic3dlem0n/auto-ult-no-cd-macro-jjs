@@ -1,13 +1,16 @@
 ﻿;Delays are set at 80 to account for lag you can change them but it could break
 toggle := false
+loopStopped := false
 
 =:: 
 {
     toggle := !toggle
     if (toggle) {
         SetTimer, LoopSequence, 3
+        loopStopped := false
     } else {
         SetTimer, LoopSequence, Off
+        loopStopped := true
     }
 }
 return
@@ -29,3 +32,23 @@ LoopSequence:
     Sleep, 80
 }
 return
+
+PostLoopActions:
+{
+    if (loopStopped) {
+        loopStopped := false 
+
+        
+        Loop, 5 {
+            Send, {Up}
+            Sleep, 80
+        }
+
+        Send, {Enter}
+        Sleep, 80
+
+        Send, \
+    }
+}
+return
+
