@@ -62,5 +62,6 @@
     Sleep, 80
 
     Send, {Up}
+    Send, {=}
 }
 return
