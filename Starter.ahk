@@ -27,6 +27,18 @@
     Send, {Down}
     Sleep, 80
 
+    Send, {Down}
+    Sleep, 80
+
+    Send, {Down}
+    Sleep, 80
+
+    Send, {Enter}
+    Sleep, 80
+
+    Send, {Up}
+    Sleep, 80
+
     Send, {Right}
     Sleep, 80
 
