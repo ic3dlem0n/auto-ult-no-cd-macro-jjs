@@ -36,10 +36,15 @@ return
 PostLoopActions:
 {
     if (loopStopped) {
-        loopStopped := false 
+        loopStopped := false
 
-        
-        Loop, 5 {
+            Send, {Down}
+            Sleep, 50
+
+            Send, {Enter}
+            Sleep, 80
+
+        Loop, 6 {
             Send, {Up}
             Sleep, 80
         }
