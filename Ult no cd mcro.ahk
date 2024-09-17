@@ -1,4 +1,4 @@
-﻿;Delays are set at 80 to account for lag you can change them but it could break
+;Delays are set at 80 to account for lag you can change them but it could break
 toggle := false
 loopStopped := false
 
@@ -11,6 +11,7 @@ loopStopped := false
     } else {
         SetTimer, LoopSequence, Off
         loopStopped := true
+        PostLoopActions()  ; Call PostLoopActions when stopping the loop
     }
 }
 return
@@ -29,31 +30,25 @@ LoopSequence:
     Sleep, 80
 
     Send, {Up}
-    Sleep, 80
+    Sleep, 90
 }
 return
 
-PostLoopActions:
+PostLoopActions()
 {
-    if (loopStopped) {
-        loopStopped := false
+    Send, {Down}
+    Sleep, 90
 
-            Send, {Down}
-            Sleep, 50
+    Send, {Enter}
+    Sleep, 80
 
-            Send, {Enter}
-            Sleep, 80
-
-        Loop, 6 {
-            Send, {Up}
-            Sleep, 80
-        }
-
-        Send, {Enter}
+    Loop, 6 {
+        Send, {Up}
         Sleep, 80
-
-        Send, \
     }
-}
-return
 
+    Send, {Enter}
+    Sleep, 80
+
+    Send, \
+}
